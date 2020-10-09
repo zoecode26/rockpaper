@@ -1,24 +1,16 @@
+actions = {
+  "scissors" => {"rock" => "Computer wins", "paper" => "User wins", "scissors" => "Its a draw", "lizard" => "User wins", "spock" => "Computer wins"},
+  "rock" => {"rock" => "Its a draw", "paper" => "Computer wins", "scissors" => "User wins", "lizard" => "User wins", "spock" => "Computer wins"},
+  "paper" => {"rock" => "User wins", "paper" => "Its a draw", "scissors" => "Computer wins", "lizard" => "Computer wins", "spock" => "User wins"},
+  "lizard" => {"rock" => "Computer wins", "paper" => "User wins", "scissors" => "Computer wins", "lizard" => "Its a draw", "spock" => "User wins"},
+  "spock" => {"rock" => "User wins", "paper" => "Computer wins", "scissors" => "User wins", "lizard" => "Computer wins", "spock" => "It's a draw"},
+}
+
 puts "Enter your choice: "
 user_choice = gets.chomp
-
-actions = {
-  "scissors" => ["paper", "lizard"],
-  "paper"=>["rock","spock"],
-  "rock"=>["lizard","scissors"],
-  "lizard"=>["spock", "paper"],
-  "spock"=>["scissors", "rock"]
-}
 
 comp_choice = actions.keys.sample
 puts comp_choice
 
-user_targets = actions[user_choice]
-comp_targets = actions[comp_choice]
-
-if user_choice == comp_choice
-  puts "Its a draw"
-elsif user_targets.include?(comp_choice)
-  puts "User wins"
-else
-  puts "Comp wins"
-end
+userhash = actions[user_choice]
+puts userhash[comp_choice]
